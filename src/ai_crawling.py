@@ -164,25 +164,6 @@ def ai_department_crawling(value):
     with session_maker() as session:
         for result in results:
             # print(result)  # db 삽입 내용 확인 출력문
-
-            # department.name에 AI융합학부가 없을 시 실행
-            """
-            if result.department_id is None:
-            # AI융합학부 column 추가 로직
-            new_department = Department(
-                id=4,
-                name="AI융합학부",
-                created_at=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                updated_at=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            )
-
-            session.add(new_department)
-            session.commit()
-            session.close()
-
-            result.department_id = new_department.id
-            """
-
             session.add(result)
 
         session.commit()
